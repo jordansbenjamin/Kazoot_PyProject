@@ -6,6 +6,7 @@ import random as rd
 THEME_COLOR = "#6fa3f7"
 FONT = ('Arial', 20, 'italic')
 BTN_FONT = ('Arial', 18, 'italic')
+FE_FONT = ('Arial', 20, 'bold')
 
 class QuizInterface:
     def __init__(self, quiz_brain: QuizLogic):
@@ -21,7 +22,8 @@ class QuizInterface:
         
         # Canvas
         self.canvas = Canvas(height=250, width=400, bg='white', highlightthickness=0)
-        self.question_text = self.canvas.create_text(200,125,text="Test", font=FONT, fill='black', width=280)
+        self.question_text = self.canvas.create_text(200,125,text="Test", font=FONT, fill='black', width=350)
+        self.feedback_text = self.canvas.create_text(200,180,text="", font=FE_FONT, fill='black', width=280)
         self.canvas.grid(column=0, row=1, columnspan=2, padx=20, pady=40)
 
         # Score label
@@ -76,6 +78,7 @@ class QuizInterface:
 
     def get_next_question(self):
         if self.quiz.still_has_questions():
+            self.canvas.itemconfig(self.feedback_text, text='')
             q_text = self.quiz.next_question()
             choices = self.quiz.current_question.choices
             self.user_answer1.insert(0, choices.pop(rd.randint(0, len(choices) - 1)))
@@ -90,6 +93,7 @@ class QuizInterface:
             self.option4_btn.config(text=self.user_answer4[0])
             self.canvas.configure(bg='white')
         else:
+            self.canvas.itemconfig(self.feedback_text, text='')
             self.canvas.itemconfig(self.question_text, text="You've reached the end of the quiz.")
             self.canvas.config(bg='white')
             # Disable the buttons
@@ -123,7 +127,9 @@ class QuizInterface:
     #     self.give_feedback(is_right)
 
     def correct_answer(self):
+        q_text = self.quiz.current_question.question
         answer = self.quiz.current_question.answer
+        # return f"""Q.{self.quiz.question_number}: {q_text}\n\nThe correct answer is: {answer}"""
         return f"The correct answer is: {answer}"
 
     def give_feedback(self, is_right):
@@ -132,6 +138,7 @@ class QuizInterface:
             self.window.after(2000, self.get_next_question)
         else:
             self.canvas.configure(bg='red')
-            self.canvas.itemconfig(self.question_text, text=self.correct_answer())
-            self.window.after(3000, self.get_next_question)
+            # self.canvas.itemconfig(self.question_text, text=self.correct_answer())
+            self.canvas.itemconfig(self.feedback_text, text=self.correct_answer())
+            self.window.after(5000, self.get_next_question)
         

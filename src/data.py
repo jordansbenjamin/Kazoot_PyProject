@@ -6,7 +6,15 @@ questions_data = [
                 "498",
                 "11",
                 "1100",
-                "145"
             ]
-    }
+    },
+    {
+        "question": "Convert 1100 1001 to hexadecimal",
+        "correct_answer": "0xC9",
+        "incorrect_answer": [
+                "124",
+                "B9",
+                "9C"
+            ]
+    },
 ]

@@ -8,4 +8,3 @@ for question in questions_data:
     new_question = Question(question_text, question_answer)
     questions.append(new_question)
 
-print(questions)

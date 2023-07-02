@@ -22,22 +22,27 @@ class QuizInterface:
         self.score_label = Label(text="Score: 0", fg='white', bg=THEME_COLOR, font=('Arial', 18, 'normal'))
         self.score_label.grid(column=1, row=0)
 
-        # Option 1 btn
+        # Option 2 btn
         blue_img = Image.open("./images/blue.png")
-        blue_img = blue_img.resize((200,50))
+        blue_img = blue_img.resize((200, 50))
         blue_img = ImageTk.PhotoImage(blue_img)
-        self.option1_btn = Button(image=blue_img, text="Test", font=FONT, fg='white', highlightthickness=0)
+        self.option1_btn = Button(font=FONT, fg='white', highlightthickness=0)
+        self.option1_btn.config(image=blue_img, compound="center", text="Test")
         self.option1_btn.grid(column=0, row=2, padx=5, pady=5)
+
+        # Option 2 btn
+        green_img = Image.open("./images/green.png")
+        green_img = green_img.resize((200, 50))
+        green_img = ImageTk.PhotoImage(green_img)
+        self.option2_btn = Button(font=FONT, fg='white', highlightthickness=0)
+        self.option2_btn.config(image=green_img, compound="center", text="Test")
+        self.option2_btn.grid(column=1, row=2, padx=5, pady=5)
+
         
-        # # Option 1
-        # self.option1 = Canvas(height=50, width=200, bg='blue', highlightthickness=0)
-        # self.option1_text = self.option1.create_text(100,25,text="", font=FONT, fill='white')
-        # self.option1.grid(column=0, row=2, padx=5, pady=5)
-        
-        # Option 2
-        self.option2 = Canvas(height=50, width=200, bg='green', highlightthickness=0)
-        self.option2_text = self.option2.create_text(100,25,text="", font=FONT, fill='white')
-        self.option2.grid(column=1, row=2, padx=5, pady=5)
+        # # Option 2
+        # self.option2 = Canvas(height=50, width=200, bg='green', highlightthickness=0)
+        # self.option2_text = self.option2.create_text(100,25,text="", font=FONT, fill='white')
+        # self.option2.grid(column=1, row=2, padx=5, pady=5)
 
         # Option 3
         self.option3 = Canvas(height=50, width=200, bg='red', highlightthickness=0)

@@ -6,7 +6,7 @@ import random as rd
 THEME_COLOR = "#6fa3f7"
 FONT = ('Arial', 20, 'italic')
 BTN_FONT = ('Arial', 18, 'italic')
-FE_FONT = ('Arial', 20, 'bold')
+FE_FONT = ('Arial', 18, 'bold')
 
 class QuizInterface:
     def __init__(self, quiz_brain: QuizLogic):
@@ -22,7 +22,7 @@ class QuizInterface:
         
         # Canvas
         self.canvas = Canvas(height=250, width=400, bg='white', highlightthickness=0)
-        self.question_text = self.canvas.create_text(200,125,text="Test", font=FONT, fill='black', width=350)
+        self.question_text = self.canvas.create_text(200,120,text="Test", font=FONT, fill='black', width=350)
         self.feedback_text = self.canvas.create_text(200,180,text="", font=FE_FONT, fill='black', width=280)
         self.canvas.grid(column=0, row=1, columnspan=2, padx=20, pady=40)
 
@@ -126,19 +126,24 @@ class QuizInterface:
     #     is_right = self.quiz.check_answer('False')
     #     self.give_feedback(is_right)
 
-    def correct_answer(self):
-        q_text = self.quiz.current_question.question
-        answer = self.quiz.current_question.answer
-        # return f"""Q.{self.quiz.question_number}: {q_text}\n\nThe correct answer is: {answer}"""
-        return f"The correct answer is: {answer}"
+    # def correct_answer(self, is_right):
+    #     q_text = self.quiz.current_question.question
+    #     answer = self.quiz.current_question.answer
+    #     if is_right:
+    #         return f"You answered correctly! {answer}"
+    #     else:
+    #         return f"Sorry, the correct answer is: {answer}"
 
     def give_feedback(self, is_right):
+        q_text = self.quiz.current_question.question
+        answer = self.quiz.current_question.answer
         if is_right:
             self.canvas.configure(bg='green')
-            self.window.after(2000, self.get_next_question)
+            self.canvas.itemconfig(self.feedback_text, text=f"You answered correctly! The answer is: {answer}")
+            self.window.after(3500, self.get_next_question)
         else:
             self.canvas.configure(bg='red')
             # self.canvas.itemconfig(self.question_text, text=self.correct_answer())
-            self.canvas.itemconfig(self.feedback_text, text=self.correct_answer())
+            self.canvas.itemconfig(self.feedback_text, text=f"Sorry, the correct answer is: {answer}")
             self.window.after(5000, self.get_next_question)
         

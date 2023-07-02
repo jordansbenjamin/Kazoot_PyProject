@@ -62,16 +62,6 @@ class QuizInterface:
         self.option4_btn.config(image=orange_img, compound="center", text="Test", command=self.check_option_4)
         self.option4_btn.grid(column=0, row=3, padx=5, pady=5)
 
-        # # Green button
-        # green_img = PhotoImage(file="./images/true.png")
-        # self.green_btn = Button(image=green_img, highlightthickness=0, command=self.true)
-        # self.green_btn.grid(column=0, row=2)
-
-        # # Red button
-        # red_img = PhotoImage(file="./images/false.png")
-        # self.red_btn = Button(image=red_img, highlightthickness=0, command=self.false)
-        # self.red_btn.grid(column=1, row=2)
-
         self.get_next_question()
 
         self.window.mainloop()
@@ -118,32 +108,14 @@ class QuizInterface:
         is_right = self.quiz.check_answer(self.user_answer4[0])
         self.give_feedback(is_right)
 
-    # def true(self):
-    #     is_right = self.quiz.check_answer('True')
-    #     self.give_feedback(is_right)
-
-    # def false(self):
-    #     is_right = self.quiz.check_answer('False')
-    #     self.give_feedback(is_right)
-
-    # def correct_answer(self, is_right):
-    #     q_text = self.quiz.current_question.question
-    #     answer = self.quiz.current_question.answer
-    #     if is_right:
-    #         return f"You answered correctly! {answer}"
-    #     else:
-    #         return f"Sorry, the correct answer is: {answer}"
-
     def give_feedback(self, is_right):
-        q_text = self.quiz.current_question.question
         answer = self.quiz.current_question.answer
         if is_right:
             self.canvas.configure(bg='green')
-            self.canvas.itemconfig(self.feedback_text, text=f"You answered correctly! The answer is: {answer}")
+            self.canvas.itemconfig(self.feedback_text, text=f"Correct! The answer is: {answer}")
             self.window.after(3500, self.get_next_question)
         else:
             self.canvas.configure(bg='red')
-            # self.canvas.itemconfig(self.question_text, text=self.correct_answer())
             self.canvas.itemconfig(self.feedback_text, text=f"Sorry, the correct answer is: {answer}")
             self.window.after(5000, self.get_next_question)
         

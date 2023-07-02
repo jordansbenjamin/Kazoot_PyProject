@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import ImageTk, Image
 from quiz_logic import QuizLogic
+import random as rd
 
 THEME_COLOR = "#6fa3f7"
 FONT = ('Arial', 20, 'italic')
@@ -43,17 +44,17 @@ class QuizInterface:
         red_img = Image.open("./images/red.png")
         red_img = red_img.resize((200, 50))
         red_img = ImageTk.PhotoImage(red_img)
-        self.option2_btn = Button(font=BTN_FONT, fg='white', highlightthickness=0)
-        self.option2_btn.config(image=red_img, compound="center", text="Test")
-        self.option2_btn.grid(column=1, row=2, padx=5, pady=5)
+        self.option3_btn = Button(font=BTN_FONT, fg='white', highlightthickness=0)
+        self.option3_btn.config(image=red_img, compound="center", text="Test")
+        self.option3_btn.grid(column=1, row=2, padx=5, pady=5)
 
         # Option 4 btn
         orange_img = Image.open("./images/orange.png")
         orange_img = orange_img.resize((200, 50))
         orange_img = ImageTk.PhotoImage(orange_img)
-        self.option2_btn = Button(font=BTN_FONT, fg='white', highlightthickness=0)
-        self.option2_btn.config(image=orange_img, compound="center", text="Test")
-        self.option2_btn.grid(column=0, row=3, padx=5, pady=5)
+        self.option4_btn = Button(font=BTN_FONT, fg='white', highlightthickness=0)
+        self.option4_btn.config(image=orange_img, compound="center", text="Test")
+        self.option4_btn.grid(column=0, row=3, padx=5, pady=5)
 
         # # Green button
         # green_img = PhotoImage(file="./images/true.png")
@@ -65,21 +66,29 @@ class QuizInterface:
         # self.red_btn = Button(image=red_img, highlightthickness=0, command=self.false)
         # self.red_btn.grid(column=1, row=2)
 
-        # self.get_next_question()
+        self.get_next_question()
 
         self.window.mainloop()
 
     def get_next_question(self):
         if self.quiz.still_has_questions():
             q_text = self.quiz.next_question()
+            choices = self.quiz.current_question.choices
             self.score_label.config(text=f"Score: {self.quiz.score}")
             self.canvas.itemconfig(self.question_text, text=q_text)
+            self.option1_btn.config(text=choices.pop(rd.randint(0, len(choices) - 1)))
+            self.option2_btn.config(text=choices.pop(rd.randint(0, len(choices) - 1)))
+            self.option3_btn.config(text=choices.pop(rd.randint(0, len(choices) - 1)))
+            self.option4_btn.config(text=choices.pop(rd.randint(0, len(choices) - 1)))
             self.canvas.configure(bg='white')
         else:
             self.canvas.itemconfig(self.question_text, text="You've reached the end of the quiz.")
             self.canvas.config(bg='white')
             self.green_btn.config(state='disabled')
             self.red_btn.config(state='disabled')
+
+    def option1(self):
+        is_right = self.quiz.check_answer('True')
 
     # def true(self):
     #     is_right = self.quiz.check_answer('True')

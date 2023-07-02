@@ -7,7 +7,8 @@ questions = []
 for question in questions_data:
     question_text = question["question"]
     question_answer = question["correct_answer"]
-    new_question = Question(question_text, question_answer)
+    choices = question["answer_choices"]
+    new_question = Question(question_text, question_answer, choices)
     questions.append(new_question)
 
 quiz = QuizLogic(questions)

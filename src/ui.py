@@ -11,6 +11,9 @@ class QuizInterface:
     def __init__(self, quiz_brain: QuizLogic):
         self.quiz = quiz_brain
         self.user_answer1 = []
+        self.user_answer2 = []
+        self.user_answer3 = []
+        self.user_answer4 = []
         
         self.window = Tk()
         self.window.title("Kazoot")
@@ -30,7 +33,7 @@ class QuizInterface:
         blue_img = blue_img.resize((200, 50))
         blue_img = ImageTk.PhotoImage(blue_img)
         self.option1_btn = Button(font=BTN_FONT, fg='white', highlightthickness=0)
-        self.option1_btn.config(image=blue_img, compound="center", text="Test", command=self.check)
+        self.option1_btn.config(image=blue_img, compound="center", text="Test", command=self.check_option_1)
         self.option1_btn.grid(column=0, row=2, padx=5, pady=5)
 
         # Option 2 btn
@@ -38,7 +41,7 @@ class QuizInterface:
         green_img = green_img.resize((200, 50))
         green_img = ImageTk.PhotoImage(green_img)
         self.option2_btn = Button(font=BTN_FONT, fg='white', highlightthickness=0)
-        self.option2_btn.config(image=green_img, compound="center", text="Test")
+        self.option2_btn.config(image=green_img, compound="center", text="Test", command=self.check_option_2)
         self.option2_btn.grid(column=1, row=3, padx=5, pady=5)
 
         # Option 3 btn
@@ -46,7 +49,7 @@ class QuizInterface:
         red_img = red_img.resize((200, 50))
         red_img = ImageTk.PhotoImage(red_img)
         self.option3_btn = Button(font=BTN_FONT, fg='white', highlightthickness=0)
-        self.option3_btn.config(image=red_img, compound="center", text="Test")
+        self.option3_btn.config(image=red_img, compound="center", text="Test", command=self.check_option_3)
         self.option3_btn.grid(column=1, row=2, padx=5, pady=5)
 
         # Option 4 btn
@@ -54,7 +57,7 @@ class QuizInterface:
         orange_img = orange_img.resize((200, 50))
         orange_img = ImageTk.PhotoImage(orange_img)
         self.option4_btn = Button(font=BTN_FONT, fg='white', highlightthickness=0)
-        self.option4_btn.config(image=orange_img, compound="center", text="Test")
+        self.option4_btn.config(image=orange_img, compound="center", text="Test", command=self.check_option_4)
         self.option4_btn.grid(column=0, row=3, padx=5, pady=5)
 
         # # Green button
@@ -76,12 +79,15 @@ class QuizInterface:
             q_text = self.quiz.next_question()
             choices = self.quiz.current_question.choices
             self.user_answer1.insert(0, choices.pop(rd.randint(0, len(choices) - 1)))
+            self.user_answer2.insert(0, choices.pop(rd.randint(0, len(choices) - 1)))
+            self.user_answer3.insert(0, choices.pop(rd.randint(0, len(choices) - 1)))
+            self.user_answer4.insert(0, choices.pop(rd.randint(0, len(choices) - 1)))
             self.score_label.config(text=f"Score: {self.quiz.score}")
             self.canvas.itemconfig(self.question_text, text=q_text)
             self.option1_btn.config(text=self.user_answer1[0])
-            self.option2_btn.config(text=choices.pop(rd.randint(0, len(choices) - 1)))
-            self.option3_btn.config(text=choices.pop(rd.randint(0, len(choices) - 1)))
-            self.option4_btn.config(text=choices.pop(rd.randint(0, len(choices) - 1)))
+            self.option2_btn.config(text=self.user_answer2[0])
+            self.option3_btn.config(text=self.user_answer3[0])
+            self.option4_btn.config(text=self.user_answer4[0])
             self.canvas.configure(bg='white')
         else:
             self.canvas.itemconfig(self.question_text, text="You've reached the end of the quiz.")
@@ -89,8 +95,20 @@ class QuizInterface:
             self.green_btn.config(state='disabled')
             self.red_btn.config(state='disabled')
 
-    def check(self):
+    def check_option_1(self):
         is_right = self.quiz.check_answer(self.user_answer1[0])
+        self.give_feedback(is_right)
+
+    def check_option_2(self):
+        is_right = self.quiz.check_answer(self.user_answer2[0])
+        self.give_feedback(is_right)
+
+    def check_option_3(self):
+        is_right = self.quiz.check_answer(self.user_answer3[0])
+        self.give_feedback(is_right)
+
+    def check_option_4(self):
+        is_right = self.quiz.check_answer(self.user_answer4[0])
         self.give_feedback(is_right)
 
     # def true(self):

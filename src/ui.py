@@ -113,9 +113,9 @@ class QuizInterface:
         if is_right:
             self.canvas.configure(bg='green')
             self.canvas.itemconfig(self.feedback_text, text=f"Correct! The answer is: {answer}")
-            self.window.after(3500, self.get_next_question)
+            self.window.after(2500, self.get_next_question)
         else:
             self.canvas.configure(bg='red')
             self.canvas.itemconfig(self.feedback_text, text=f"Sorry, the correct answer is: {answer}")
-            self.window.after(5000, self.get_next_question)
+            self.window.after(4000, self.get_next_question)
         

@@ -92,8 +92,11 @@ class QuizInterface:
         else:
             self.canvas.itemconfig(self.question_text, text="You've reached the end of the quiz.")
             self.canvas.config(bg='white')
-            self.green_btn.config(state='disabled')
-            self.red_btn.config(state='disabled')
+            # Disable the buttons
+            self.option1_btn.config(state='disabled')
+            self.option2_btn.config(state='disabled')
+            self.option3_btn.config(state='disabled')
+            self.option4_btn.config(state='disabled')
 
     def check_option_1(self):
         is_right = self.quiz.check_answer(self.user_answer1[0])
@@ -119,11 +122,16 @@ class QuizInterface:
     #     is_right = self.quiz.check_answer('False')
     #     self.give_feedback(is_right)
 
+    def correct_answer(self):
+        answer = self.quiz.current_question.answer
+        return f"The correct answer is: {answer}"
+
     def give_feedback(self, is_right):
         if is_right:
             self.canvas.configure(bg='green')
-            self.window.after(1000, self.get_next_question)
+            self.window.after(2000, self.get_next_question)
         else:
             self.canvas.configure(bg='red')
-            self.window.after(1000, self.get_next_question)
+            self.canvas.itemconfig(self.question_text, text=self.correct_answer())
+            self.window.after(3000, self.get_next_question)
         

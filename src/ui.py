@@ -83,8 +83,8 @@ class QuizInterface:
             self.option4_btn.config(text=self.user_answer4[0])
             self.canvas.configure(bg='white')
         else:
-            self.canvas.itemconfig(self.feedback_text, text='')
             self.canvas.itemconfig(self.question_text, text="You've reached the end of the quiz.")
+            self.canvas.itemconfig(self.feedback_text, text=f'You have a score of: {self.quiz.score} / {len(self.quiz.question_list)}')
             self.canvas.config(bg='white')
             # Disable the buttons
             self.option1_btn.config(state='disabled')

@@ -10,6 +10,7 @@ BTN_FONT = ('Arial', 18, 'italic')
 class QuizInterface:
     def __init__(self, quiz_brain: QuizLogic):
         self.quiz = quiz_brain
+        self.user_answer1 = []
         
         self.window = Tk()
         self.window.title("Kazoot")
@@ -29,7 +30,7 @@ class QuizInterface:
         blue_img = blue_img.resize((200, 50))
         blue_img = ImageTk.PhotoImage(blue_img)
         self.option1_btn = Button(font=BTN_FONT, fg='white', highlightthickness=0)
-        self.option1_btn.config(image=blue_img, compound="center", text="Test")
+        self.option1_btn.config(image=blue_img, compound="center", text="Test", command=self.check)
         self.option1_btn.grid(column=0, row=2, padx=5, pady=5)
 
         # Option 2 btn
@@ -74,9 +75,10 @@ class QuizInterface:
         if self.quiz.still_has_questions():
             q_text = self.quiz.next_question()
             choices = self.quiz.current_question.choices
+            self.user_answer1.insert(0, choices.pop(rd.randint(0, len(choices) - 1)))
             self.score_label.config(text=f"Score: {self.quiz.score}")
             self.canvas.itemconfig(self.question_text, text=q_text)
-            self.option1_btn.config(text=choices.pop(rd.randint(0, len(choices) - 1)))
+            self.option1_btn.config(text=self.user_answer1[0])
             self.option2_btn.config(text=choices.pop(rd.randint(0, len(choices) - 1)))
             self.option3_btn.config(text=choices.pop(rd.randint(0, len(choices) - 1)))
             self.option4_btn.config(text=choices.pop(rd.randint(0, len(choices) - 1)))
@@ -87,8 +89,9 @@ class QuizInterface:
             self.green_btn.config(state='disabled')
             self.red_btn.config(state='disabled')
 
-    def option1(self):
-        is_right = self.quiz.check_answer('True')
+    def check(self):
+        is_right = self.quiz.check_answer(self.user_answer1[0])
+        self.give_feedback(is_right)
 
     # def true(self):
     #     is_right = self.quiz.check_answer('True')
@@ -98,11 +101,11 @@ class QuizInterface:
     #     is_right = self.quiz.check_answer('False')
     #     self.give_feedback(is_right)
 
-    # def give_feedback(self, is_right):
-    #     if is_right:
-    #         self.canvas.configure(bg='green')
-    #         self.window.after(1000, self.get_next_question)
-    #     else:
-    #         self.canvas.configure(bg='red')
-    #         self.window.after(1000, self.get_next_question)
+    def give_feedback(self, is_right):
+        if is_right:
+            self.canvas.configure(bg='green')
+            self.window.after(1000, self.get_next_question)
+        else:
+            self.canvas.configure(bg='red')
+            self.window.after(1000, self.get_next_question)
         

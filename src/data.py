@@ -491,12 +491,12 @@ questions_data = [
 },
 {
     "question": "What is the result of 0110 1001 + 0001 0111",
-    "correct_answer": "0111 1100",
+    "correct_answer": "1000 0000",
     "answer_choices": [
             "1010 1111",
             "124",
             "0111 1110",
-            "0111 1100"
+            "1000 0000"
         ]
 },
 {
@@ -551,12 +551,12 @@ questions_data = [
 },
 {
     "question": "What is the result of R ⋅ S, where:\nR = [[2,1,3],[4,5,6]]\nS = [[1,4],[7,8],[9,2]]",
-    "correct_answer": "[[34,24],[89,58]]",
+    "correct_answer": "[[36,22],[93,68]]",
     "answer_choices": [
         "[[30,26],[83,56]]",
         "[[33,24],[88,59]]",
         "[[34,24],[89,57]]",
-        "[[34,24],[89,58]]"
+        "[[36,22],[93,68]]"
     ]
 },
 {
@@ -571,7 +571,7 @@ questions_data = [
 },
 {
     "question": "What is the result of M ⋅ N, where:\n\nM = [[3,4],[5,6]]\n\nN = [[7,8,9],[11,12,13]]",
-    "correct_answer": "[[65,74,83],[107,124,141]]",
+    "correct_answer": "[[65,72,66],[101,112,123]]",
     "answer_choices": [
             "[[68,74,80],[112,124,140]]",
             "[[65,74,84],[107,124,142]]",

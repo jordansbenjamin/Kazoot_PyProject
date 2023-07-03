@@ -1,12 +1,12 @@
 # Kazoot
-Kazoot is of course inspired by Kahoot! I am using the app to revise CS fundamental topics, decided it would be more fun to create a flash card/quiz style app and test memory this way 😅
+Kazoot is of course inspired by Kahoot! I am using the app to revise CS fundamental topics which I'm currently studying for, decided it would be more fun to create a flash card/quiz style app and test memory this way 😅
 
 <img src="./src/images/kazoot.jpg" width="400"></img>
 ## Installation Guide
 
 ### System Requirements
 
-To star the Kazoot program, since its a terminal application built on Python. It is a requirement that **Python 3** is installed on your computer.
+To star the Kazoot program, since its an application built on Python. It is a requirement that **Python 3** is installed on your computer.
 
 You can check which version of python is installed or if you have it installed at all by:
 

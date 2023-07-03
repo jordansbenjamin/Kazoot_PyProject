@@ -10,6 +10,26 @@ check_python(){
     fi
 }
 
+# Checks if tkinter is installed
+check_tkinter(){
+    echo "Checking if tkinter is installed..."
+
+    python3 -c "import tkinter" &> /dev/null
+    if [ $? -ne 0 ]; then
+        echo "Tkinter not found. Trying to install..."
+        sudo apt-get install python3-tk
+        python3 -c "import tkinter" &> /dev/null
+        if [ $? -ne 0 ]; then
+            echo "Unable to install tkinter. Please install it manually."
+            exit 1
+        else
+            echo "Tkinter installed successfully."
+        fi
+    else
+        echo "Tkinter is already installed."
+    fi
+}
+
 # Creates virtual environment
 create_virtual_venv(){
     python3 -m venv $1
@@ -38,6 +58,8 @@ sleep 2
 clear
 
 check_python
+
+check_tkinter
 
 create_virtual_venv .venv
 

@@ -750,16 +750,6 @@ questions_data = [
         ]
 },
 {
-    "question": "Solve 0x7A ⊕ 0xE1",
-    "correct_answer": "0x9B",
-    "answer_choices": [
-            "0xF",
-            "0x7B",
-            "0x9B",
-            "0x15"
-        ]
-},
-{
     "question": "If function g(x) = x+2, then for g([2,3])=[4,5]...",
     "correct_answer": "[2,3] is domain, [4,5] is range",
     "answer_choices": [
@@ -947,16 +937,6 @@ questions_data = [
             "False",
             "Undefined",
             "True and False"
-        ]
-},
-{
-    "question": "What does | signify in a set?",
-    "correct_answer": "Such that",
-    "answer_choices": [
-            "Or",
-            "And",
-            "Such that",
-            "Not equal to"
         ]
 },
 {

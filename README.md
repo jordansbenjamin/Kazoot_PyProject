@@ -87,7 +87,7 @@ chmod +x run_kazoot.sh
 
 Add a note here that for the best possible experience, the terminal window needs to be larger than usual.
 
-7. Enjoy the game! It's important to note when you quit the game, all you need to do to play again is to run the game with the command above. As a reminder: `./run_kazoot.sh`
+7. Enjoy the program! It's important to note when you quit the program, all you need to do to start again is to run the game with the command above. As a reminder: `./run_kazoot.sh`
 
 ### Dependencies
 

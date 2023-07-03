@@ -576,7 +576,7 @@ questions_data = [
             "[[68,74,80],[112,124,140]]",
             "[[65,74,84],[107,124,142]]",
             "Error",
-            "[[65,74,83],[107,124,141]]"
+            "[[65,72,66],[101,112,123]]"
         ]
 },
 {
@@ -590,33 +590,33 @@ questions_data = [
     ]
 },
 {
-    "question": "What is the result of T ⋅ U, where:\nT = [[7,2,1],[5,3,6]]\nU = [[1,4],[2,5],[3,6]]. U needs to be transposed first.",
-    "correct_answer": "[[20,34,48],[27,51,75]]",
+    "question": "What is the result of T ⋅ U, where:\nT = [[7,2,1],[5,3,6]]\nU = [[1,2,3],[4,5,6]]. U needs to be transposed first.",
+    "correct_answer": "[[14,44],[29,71]]",
     "answer_choices": [
         "[[21,35,50],[28,52,77]]",
         "[[20,33,47],[27,50,74]]",
-        "[[20,34,49],[27,52,76]]",
-        "[[20,34,48],[27,51,75]]"
+        "Error",
+        "[[14,44],[29,71]]"
     ]
 },
 {
     "question": "What is the result of M ⋅ N, where:\nM = [[5,2],[1,3]]\nN = [[2,4],[5,6]]. M needs to be transposed first.",
-    "correct_answer": "[[10,20],[16,26]]",
+    "correct_answer": "[[18,37],[13,23]]",
     "answer_choices": [
         "[[9,20],[15,26]]",
         "[[10,21],[16,27]]",
-        "[[10,20],[17,26]]",
-        "[[10,20],[16,26]]"
+        "[[13,23],[18,37]]",
+        "[[18,37],[13,23]]"
     ]
 },
 {
     "question": "What is 1111000 + 1010101",
-    "correct_answer": "10101101",
+    "correct_answer": "11001101",
     "answer_choices": [
             "10101010",
             "10101101",
             "10001110",
-            "10101011"
+            "11001101"
         ]
 },
 {

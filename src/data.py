@@ -363,34 +363,155 @@ questions_data = [
     #             "[[-6,-3],[2,4]]"
     #         ]
     # },
+    # {
+    #     "question": "The nodes [A B C D], are connected by edges to form the following matrix:\n\n[[0,2,3,0],[1,0,0,3],[1,1,0,1],[0,0,0,1]]\n\nFind the shortest path from A to D",
+    #     "correct_answer": "4",
+    #     "answer_choices": [
+    #             "6",
+    #             "5",
+    #             "3",
+    #             "4"
+    #         ]
+    # },
+    # {
+    #     "question": "Represent the following as an edge-list:\n\n[[0,0,1,0],[1,0,0,1],[1,1,0,0],[0,0,0,1]]",
+    #     "correct_answer": "[A1C,B1A,B1D,C1A,C1B,D1D]",
+    #     "answer_choices": [
+    #             "[A1B,B1A,B1B,C1A,C1B,D1D]",
+    #             "[A1C,B1A,B1D,C1A,C1B]",
+    #             "[C1A,A1B,D1B,A1C,B1C,D1B]",
+    #             "[A1C,B1A,B1D,C1A,C1B,D1D]"
+    #         ]
+    # },
+    # {
+    #     "question": "What is the result of A ⋅ B, where:\n\nA = [[1,2],[4,3]]\n\nB = [[5,6,7],[7,6,5]]",
+    #     "correct_answer": "[[19,18,17],[41,42,43]]",
+    #     "answer_choices": [
+    #             "[[8,5],[14,14]]",
+    #             "[[19,-18,-17],[41,43,44]]",
+    #             "Error",
+    #             "[[19,18,17],[41,42,43]]"
+    #         ]
+    # },
+    # {
+    #     "question": "Trees are a type of graph, however...",
+    #     "correct_answer": "Tree have no 'cycles'",
+    #     "answer_choices": [
+    #             "Tree has 2 parents",
+    #             "A tree has different 'cycles'",
+    #             "Tree is a smaller graph",
+    #             "Tree have no 'cycles'"
+    #         ]
+    # },
+    # {
+    #     "question": "What is meant by (v,w) ∈ E?",
+    #     "correct_answer": "(v,w) is an edge in set E",
+    #     "answer_choices": [
+    #             "(v,w) are points in set E",
+    #             "(v,w) is a sub-edge in set E",
+    #             "(v,w) is a point in set E",
+    #             "(v,w) is an edge in set E"
+    #         ]
+    # },
+    # Data quiz 5
+    # {
+    #     "question": "What is 1010101 + 10011010",
+    #     "correct_answer": "1110 1111",
+    #     "answer_choices": [
+    #             "1111 1100",
+    #             "1110 1101",
+    #             "1101 0110",
+    #             "1110 1111"
+    #         ]
+    # },
+    # {
+    #     "question": "Transitivity is...",
+    #     "correct_answer": "xRy, yRz ⇒ xRz",
+    #     "answer_choices": [
+    #             "xRx for all x",
+    #             "xRy ⇒ yRx",
+    #             "x ⇒ y, y ⇒ z",
+    #             "xRy, yRz ⇒ xRz"
+    #         ]
+    # },
+    # {
+    #     "question": "What is the reuslt of {a,b,c}∪{c,d}",
+    #     "correct_answer": "{a,b,c,d}",
+    #     "answer_choices": [
+    #             "{a,b,d}",
+    #             "{a,b,c,c,d}",
+    #             "{c}",
+    #             "{a,b,c,d}"
+    #         ]
+    # },
     {
-        "question": "The nodes [A B C D], are connected by edges to form the following matrix:\n\n[[0,2,3,0],[1,0,0,3],[1,1,0,1],[0,0,0,1]]\n\nFind the shortest path from A to D",
-        "correct_answer": "4",
+        "question": "If relation R is defined by xRy where 2x = x + y then R is...",
+        "correct_answer": "Reflexive,Symmetric,Transitive",
         "answer_choices": [
-                "6",
-                "5",
-                "3",
-                "4"
+                "Symmetric,Transitive",
+                "Reflexive,Symmetric",
+                "Reflexive",
+                "Reflexive,Symmetric,Transitive"
             ]
     },
     {
-        "question": "Represent the following as an edge-list:\n\n[[0,0,1,0],[1,0,0,1],[1,1,0,0],[0,0,0,1]]",
-        "correct_answer": "[A1C,B1A,B1D,C1A,C1B,D1D]",
+        "question": "If we have a case where aRb AND aRc, can relation R be a function?",
+        "correct_answer": "This relation is not a function",
         "answer_choices": [
-                "[A1B,B1A,B1B,C1A,C1B,D1D]",
-                "[A1C,B1A,B1D,C1A,C1B]",
-                "[C1A,A1B,D1B,A1C,B1C,D1B]",
-                "[A1C,B1A,B1D,C1A,C1B,D1D]"
+                "Relations can always be functions",
+                "Relations can never be functions",
+                "This relation is a function",
+                "This relation is not a function"
             ]
     },
     {
-        "question": "What is the result of A ⋅ B, where:\n\nA = [[1,2],[4,3]]\n\nB = [[5,6,7],[7,6,5]]",
-        "correct_answer": "[[19,18,17],[41,42,43]]",
+        "question": "What is the result of 183 ⊕ 234",
+        "correct_answer": "93",
         "answer_choices": [
-                "[[8,5],[14,14]]",
-                "[[19,-18,-17],[41,43,44]]",
-                "Error",
-                "[[19,18,17],[41,42,43]]"
+                "167",
+                "87",
+                "83",
+                "93"
+            ]
+    },
+    {
+        "question": "What do you call applying a function over a List/Array/Set?",
+        "correct_answer": "Mapping",
+        "answer_choices": [
+                "For-eaching",
+                "Scaling",
+                "Sweeping",
+                "Mapping"
+            ]
+    },
+    {
+        "question": "Solve 0xF4 ⊕ 0xE1",
+        "correct_answer": "0x15",
+        "answer_choices": [
+                "0xF",
+                "15",
+                "0x51",
+                "0x15"
+            ]
+    },
+    {
+        "question": "If function f(x) = x+1, then for f([1,2])=[2,3]...",
+        "correct_answer": "[1,2] is domain, [2,3] is range",
+        "answer_choices": [
+                "[1,2] is domain, [2,3] is result",
+                "[1,2] is related to result [2,3]",
+                "[2,1] is domain, [3,2] is range",
+                "[1,2] is domain, [2,3] is range"
+            ]
+    },
+    {
+        "question": "What is the set created by {s ∈ ℤ | s >= -8; s <= -2; s mod 2 = 0}",
+        "correct_answer": "{-8,-6,-4,-2}",
+        "answer_choices": [
+                "{-6,-4}",
+                "{-7,-6,-5,-4,-3}",
+                "{-8,-7,-6,-5,-4,-3,-2}",
+                "{-8,-6,-4,-2}"
             ]
     },
 ]
